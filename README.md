@@ -1,1 +1,0 @@
-# com.endomondo.project
