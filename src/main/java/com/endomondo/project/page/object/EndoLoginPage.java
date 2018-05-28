@@ -12,7 +12,7 @@ public class EndoLoginPage {
     private WebElement email;
     private WebElement password;
     
-    @FindBy(name = "LOG IN")
+    @FindBy(xpath = "//span[@class='ng-binding ng-scope']")
     private WebElement loginButton;
 
 
