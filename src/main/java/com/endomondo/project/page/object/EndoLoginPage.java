@@ -1,9 +1,10 @@
 package com.endomondo.project.page.object;
+
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 public class EndoLoginPage {
@@ -11,8 +12,8 @@ public class EndoLoginPage {
 
     private WebElement email;
     private WebElement password;
-    
-    @FindBy(name = "LOG IN")
+
+    @FindBy(xpath= "//span[@class ='ng-binding ng-scope']")
     private WebElement loginButton;
 
 
@@ -22,9 +23,9 @@ public class EndoLoginPage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-    //access methods to the fields: Email/PAssword and ZALOGUJ button
+    //access methods to the fields: Email/Password and ZALOGUJ button
 
-    public void setEmail(String Email_input) { email.sendKeys(Email_input); }
+    public void setEmail(String email_input) { email.sendKeys(email_input); }
 
     public void setPassword(String password_input) { password.sendKeys(password_input); }
 
