@@ -1,11 +1,9 @@
 package com.endomondo.project.test;
 
-import org.testng.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import com.endomondo.project.page.object.EndoLoginPage;
-import org.testng.asserts.Assertion;
-
-import java.io.Serializable;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -14,17 +12,17 @@ public class EndoLoginPageTest extends EndoSuiteTest {
 
     @Test
     public void EndoLoginPageTest(){
-        //creating a copy of the page class EndoLoginPage
-        //and passing the driver object
-        EndoLoginPage endoLogin = new EndoLoginPage(driver);
 
-        //set email
-        endoLogin.setEmail("majmagda1@o2.pl");
-        //set password
-        endoLogin.setPassword("ThePassword1");
-        endoLogin.loginToAccount();
+        //given
+        EndoLoginPage endoLogin = new EndoLoginPage(driver); //creating a copy of the page class EndoLoginPage and passing the driver object
+        endoLogin.setEmail("majmagda1@o2.pl"); //set email
+        endoLogin.setPassword("ThePassword1"); //set password
+        endoLogin.loginToAccount(); //clicking button
+        endoLogin.closePopupIfDisplayed();
+        //when
+        //then
 
-        assertTrue(driver.getTitle().startsWith("Utrzymaj motywację"),
-                "title should start with Utrzymaj motywację");
+        assertTrue(endoLogin.getLogo().isDisplayed());
     }
+
 }
