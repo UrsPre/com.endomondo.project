@@ -46,7 +46,6 @@ public class EndoLoginPage {
             popupCloseButton.click();
         }
     }
-
     public WebElement getLogo() {
         return endomondoLogo;
     }

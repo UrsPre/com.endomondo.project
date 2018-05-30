@@ -15,11 +15,12 @@ public class EndoLoginPageTest extends EndoSuiteTest {
 
         //given
         EndoLoginPage endoLogin = new EndoLoginPage(driver); //creating a copy of the page class EndoLoginPage and passing the driver object
+        //when
         endoLogin.setEmail("majmagda1@o2.pl"); //set email
         endoLogin.setPassword("ThePassword1"); //set password
         endoLogin.loginToAccount(); //clicking button
         endoLogin.closePopupIfDisplayed();
-        //when
+
         //then
 
         assertTrue(endoLogin.getLogo().isDisplayed());
