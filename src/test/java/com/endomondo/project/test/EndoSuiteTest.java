@@ -17,7 +17,7 @@ public abstract class EndoSuiteTest  {
         driver.get("https://www.endomondo.com/login");
     }
 
-  //  @AfterSuite
+    //@AfterSuite
     public void tearDown(){ //closing browser
         driver.quit();
     }
