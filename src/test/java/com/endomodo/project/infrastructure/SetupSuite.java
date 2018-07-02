@@ -1,11 +1,10 @@
-package com.endomondo.project.test;
+package com.endomodo.project.infrastructure;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
-public abstract class EndoSuiteTest  {
+public abstract class SetupSuite {
 
     public WebDriver driver;    // chromedriver declaration
 
@@ -14,11 +13,13 @@ public abstract class EndoSuiteTest  {
 
         System.setProperty("webdriver.chrome.driver", "C:\\MOJ\\java\\webdrivers\\chromedriver.exe"); //chromdriver initialization
         driver = new ChromeDriver();
-        driver.get("https://www.endomondo.com/login");
+        driver.get("https://www.endomondo.com");
     }
 
   //  @AfterSuite
     public void tearDown(){ //closing browser
         driver.quit();
     }
+
+
 }

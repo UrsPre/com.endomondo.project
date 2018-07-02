@@ -6,7 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class EndoLoginPage {
+import java.util.concurrent.TimeUnit;
+
+public class LoginPage {
     //page elements are defined
 
     private WebElement email;
@@ -18,7 +20,7 @@ public class EndoLoginPage {
 
     private WebDriver driver;
     //creating constructor
-    public EndoLoginPage(WebDriver driver) {
+    public LoginPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -28,5 +30,14 @@ public class EndoLoginPage {
 
     public void setPassword(String password_input) { password.sendKeys(password_input); }
 
-    public void loginToAccount() { loginButton.click(); }
+    public HomePage clickToLoginButton() { loginButton.click();
+    driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+    return new HomePage(driver);
+    }
+
+    public WebElement getLoginButton() {
+        return loginButton;
+    }
+
+
 }
