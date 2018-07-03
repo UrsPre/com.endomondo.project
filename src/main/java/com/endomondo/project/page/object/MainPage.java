@@ -23,6 +23,4 @@ public class MainPage {
         return new LoginPage(driver);
     }
 
-
-
 }
