@@ -27,8 +27,6 @@ public class HomePageTest extends SetupSuite {
         homePremiumPopup.clickToClosePopup();
 
         //then
-
-      //  Assert.assertEquals(homePage.getLogoOnHomePage(), logoOnHomePage);
         Assert.assertTrue(homePage.getLogoOnHomePage().isDisplayed());
     }
 }
