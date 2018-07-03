@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 public class HomePremiumPopup {
 
     //localization of elements on page
-    @FindBy(xpath = "//span[@class='MonthTrialPopup-close']")
+    @FindBy(className = "MonthTrialPopup-close")
     WebElement xButton;
     @FindBy(xpath = "//span[@class='MonthTrialPopup-primaryButtonLabel']")
     WebElement Start30DaysForFreeButton;
@@ -29,10 +29,14 @@ public class HomePremiumPopup {
         return Start30DaysForFreeButton;
     }
 
+    public WebElement getXButton() {
+        return xButton;
+    }
+
     public HomePage clickToClosePopup(){
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        xButton.click();
-        return homePage;
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        getXButton().click();
+        return new HomePage(driver);
     }
 
 }
