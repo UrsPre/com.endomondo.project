@@ -11,6 +11,8 @@ public class MainPage {
     @FindBy(linkText = "Log in")
     private WebElement loginLink;
     private WebDriver driver;
+    @FindBy (linkText = "Sign up")
+    WebElement signupLink;
 
     //creating constructor
     public MainPage(WebDriver driver) {
@@ -21,6 +23,10 @@ public class MainPage {
         loginLink.click();
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         return new LoginPage(driver);
+    }
+    public SignupPage clickToSignupLink(){
+        signupLink.click();
+        return new SignupPage(driver);
     }
 
 }

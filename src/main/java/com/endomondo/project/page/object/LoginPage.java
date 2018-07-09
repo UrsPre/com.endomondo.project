@@ -27,7 +27,6 @@ public class LoginPage {
     //access methods to the fields: Email/PAssword and ZALOGUJ button
 
     public void setEmail(String Email_input) { email.sendKeys(Email_input); }
-
     public void setPassword(String password_input) { password.sendKeys(password_input); }
 
     public HomePage clickToLoginButton() { loginButton.click();
