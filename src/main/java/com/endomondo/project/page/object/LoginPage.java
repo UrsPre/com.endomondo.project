@@ -26,12 +26,17 @@ public class LoginPage {
     }
     //access methods to the fields: Email/PAssword and ZALOGUJ button
 
-    public void setEmail(String Email_input) { email.sendKeys(Email_input); }
-    public void setPassword(String password_input) { password.sendKeys(password_input); }
+    public void setEmail(String Email_input) {
+        email.sendKeys(Email_input);
+    }
+    public void setPassword(String password_input) {
+        password.sendKeys(password_input);
+    }
 
-    public HomePage clickToLoginButton() { loginButton.click();
-    driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-    return new HomePage(driver);
+    public HomePage clickToLoginButton() {
+        loginButton.click();
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        return new HomePage(driver);
     }
 
     public WebElement getLoginButton() {

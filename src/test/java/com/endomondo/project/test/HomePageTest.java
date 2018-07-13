@@ -10,13 +10,31 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class HomePageTest extends SetupSuite {
+
     @Test
-    public void HomePageTest(){
+    public void shouldDisplayHomePagePopup(){
 
         //given
         //creating a copy of the page class MainPage and passing the driver object
         MainPage mainPage = new MainPage(driver);
         //creating a copy of the page class LoginPage and inicializing metod clickToLoginLink
+        LoginPage loginPage = mainPage.clickToLoginLink();
+
+        //when
+        //set email and password
+        loginPage.setEmail("majmagda1@o2.pl");
+        loginPage.setPassword("ThePassword1");
+        //creating a copy of the page class HomePage and inicializing metod clickToLoginButton
+        HomePage homePage = loginPage.clickToLoginButton();
+
+        //then
+        //checking if text on the button is correct
+        Assert.assertEquals(homePage.getHomePremiumPopup().getButtonStart30DaysForFree().getText(),"ROZPOCZNIJ 30-DNIOWY DARMOWY OKRES PRÓBNY");
+    }
+    @Test
+    public void shouldPublishMessage(){
+        //given
+        MainPage mainPage = new MainPage(driver);
 
         //when
         LoginPage loginPage = mainPage.clickToLoginLink();
@@ -24,10 +42,12 @@ public class HomePageTest extends SetupSuite {
         loginPage.setPassword("ThePassword1");
         HomePage homePage = loginPage.clickToLoginButton();
         HomePremiumPopup homePremiumPopup = homePage.getHomePremiumPopup();
-        homePremiumPopup.clickToClosePopup();
+        HomePage homePageWithPublishedMessage = homePremiumPopup.clickToClosePopup();
+        homePageWithPublishedMessage.setMessage("traaalalala");
+        homePageWithPublishedMessage.clickPublishMessageButton();
 
         //then
-        Assert.assertTrue(homePage.getLogoOnHomePage().isDisplayed());
+
     }
 }
 

@@ -4,14 +4,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
 
 public class HomePage {
 
-    HomePremiumPopup homePremiumPopup;
+    private HomePremiumPopup homePremiumPopup;
     @FindBy(xpath = "//img[@alt='Endomondo Logo']")
-    WebElement logoHomePage;
+    private WebElement logoHomePage;
+    @FindBy(name = "message")
+    private WebElement message;
+    @FindBy(xpath = "//button[@class='button button-default']")
+    private WebElement publishMessageButton;
+    private WebDriver driver;
 
-    WebDriver driver;
     public HomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -24,6 +31,14 @@ public class HomePage {
         return logoHomePage;
     }
 
+    public void setMessage(String message_text) {
+        message.sendKeys(message_text);
+
+    }
+    public HomePage clickPublishMessageButton(){
+        publishMessageButton.click();
+        return new HomePage(driver);
+    }
 
 }
 

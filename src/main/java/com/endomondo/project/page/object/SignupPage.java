@@ -1,4 +1,6 @@
 package com.endomondo.project.page.object;
+
+import lombok.Setter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class SignupPage {
 
     private WebElement email;
+    @Setter
     private WebElement password;
     private WebElement firstName;
     private WebElement lastName;
@@ -37,6 +40,7 @@ public class SignupPage {
         email.clear();
         email.sendKeys(email_inp);
     }
+
     public void setPassword(String password_input) {
         password.sendKeys(password_input);
     }

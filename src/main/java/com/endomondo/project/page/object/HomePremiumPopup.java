@@ -13,7 +13,7 @@ public class HomePremiumPopup {
     @FindBy(className = "MonthTrialPopup-close")
     WebElement xButton;
     @FindBy(xpath = "//span[@class='MonthTrialPopup-primaryButtonLabel']")
-    WebElement Start30DaysForFreeButton;
+    WebElement start30DaysForFreeButton;
     WebDriver driver;
     HomePage homePage;
 
@@ -26,7 +26,7 @@ public class HomePremiumPopup {
     }
     //initializing
     public WebElement getButtonStart30DaysForFree() {
-        return Start30DaysForFreeButton;
+        return start30DaysForFreeButton;
     }
 
     public WebElement getXButton() {
@@ -34,7 +34,7 @@ public class HomePremiumPopup {
     }
 
     public HomePage clickToClosePopup(){
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         getXButton().click();
         return new HomePage(driver);
     }

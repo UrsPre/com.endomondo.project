@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 public class SignupPageTest extends SetupSuite{
 
     @Test
-    public void SignupPageTest() {
+    public void shouldCreateNewAccount() {
 
         //given
         //creating a copy of the page class MainPage and passing the driver object

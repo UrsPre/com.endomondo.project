@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class MainPageTest extends SetupSuite {
     @Test
-    public void ensureThatLoginPageDisplayAfterClickToLoginLink() {
+    public void shouldLoginPageBeDisplayedAfterClickToLoginLink() {
         //given
         //creating a copy of the page class LoginPageTest
         //and passing the driver object
