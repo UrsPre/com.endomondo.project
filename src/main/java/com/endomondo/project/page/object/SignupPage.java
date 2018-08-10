@@ -42,12 +42,15 @@ public class SignupPage {
     }
 
     public void setPassword(String password_input) {
+
         password.sendKeys(password_input);
     }
     public void setFirstName(String firstName_input) {
+
         firstName.sendKeys(firstName_input);
     }
     public void setLastName(String lastName_input) {
+
         lastName.sendKeys(lastName_input);
     }
 
@@ -60,12 +63,15 @@ public class SignupPage {
         countryDropdown.selectByVisibleText(country);
     }
     public void selectCheckbox(){
+
         checkboxDataPrivacy.click();
     }
     public void clickSignupButton(){
+
         signupButton.click();
     }
     public WebElement getAcceptAndContinueButton(){
+
         return acceptAndContinueButton;
     }
 }

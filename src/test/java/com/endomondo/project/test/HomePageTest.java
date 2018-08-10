@@ -1,11 +1,9 @@
 package com.endomondo.project.test;
 
 import com.endomodo.project.infrastructure.SetupSuite;
-import com.endomondo.project.page.object.HomePage;
-import com.endomondo.project.page.object.HomePremiumPopup;
-import com.endomondo.project.page.object.LoginPage;
-import com.endomondo.project.page.object.MainPage;
+import com.endomondo.project.page.object.*;
 import com.sun.org.apache.xpath.internal.operations.Equals;
+import io.restassured.RestAssured;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -47,6 +45,33 @@ public class HomePageTest extends SetupSuite {
         homePageWithPublishedMessage.clickPublishMessageButton();
 
         //then
+      //  Assert.assertEquals(homePageWithPublishedMessage.getMessageTime().getText(),"SEK. TEMU");
+
+        RestAssured.given().
+                accept("application/json").
+                body("{\"message\":\"er422e\",\"picture_keys\":[]}").
+                when().
+                post("https://www.endomondo.com/rest/v1/users/37102364/feeds/").
+                then().statusCode(200);
+
+    }
+
+    @Test
+    public void shouldNewWorkoutBeAdded(){
+        //given
+        MainPage mainPage = new MainPage(driver);
+        //when
+        LoginPage loginPage = mainPage.clickToLoginLink();
+        loginPage.setEmail("majmagda1@o2.pl");
+        loginPage.setPassword("ThePassword1");
+        HomePage homePage = loginPage.clickToLoginButton();
+        HomePremiumPopup homePremiumPopup = homePage.getHomePremiumPopup();
+        HomePage homePageAfterClosingPopup = homePremiumPopup.clickToClosePopup();
+        WorkoutPage workoutPage = homePageAfterClosingPopup.clickToAddWorkoutButton();
+
+        //then
+        Assert.assertTrue(workoutPage.getManualWorkoutButton().isDisplayed());
+
 
     }
 }
