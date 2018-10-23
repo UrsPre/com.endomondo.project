@@ -22,7 +22,7 @@ public class HomePage extends BasePage {
     private WebElement publishMessageButton;
     @FindBy(xpath = "//a[contains(@href,'/workouts/create')]")
     private WebElement createWorkoutButton;
-    @FindBy(className = "txt-caption feedItem-timestamp")
+    @FindBy(linkText = "SEKUND TEMU")
     private WebElement messageTime;
 
     private WebDriver driver;
@@ -35,7 +35,7 @@ public class HomePage extends BasePage {
     public HomePremiumPopup getHomePremiumPopup(){
         return homePremiumPopup;
     }
-    public WebElement getLogoOnHomePage(){
+    public WebElement getLogoOnHomePage() {
         return logoHomePage;
     }
 

@@ -13,7 +13,6 @@ import java.util.concurrent.TimeUnit;
 public class SignupPage {
 
     private WebElement email;
-    @Setter
     private WebElement password;
     private WebElement firstName;
     private WebElement lastName;

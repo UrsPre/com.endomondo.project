@@ -45,14 +45,7 @@ public class HomePageTest extends SetupSuite {
         homePageWithPublishedMessage.clickPublishMessageButton();
 
         //then
-      //  Assert.assertEquals(homePageWithPublishedMessage.getMessageTime().getText(),"SEK. TEMU");
-
-        RestAssured.given().
-                accept("application/json").
-                body("{\"message\":\"er422e\",\"picture_keys\":[]}").
-                when().
-                post("https://www.endomondo.com/rest/v1/users/37102364/feeds/").
-                then().statusCode(200);
+        Assert.assertEquals(homePageWithPublishedMessage.getMessageTime().getText(),"SEKUND TEMU");
 
     }
 
